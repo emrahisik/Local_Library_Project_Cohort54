@@ -7,12 +7,7 @@ function getTotalAccountsCount(accounts) {
 }
 
 function getBooksBorrowedCount(books) {
-  return books.reduce((acc, book) => {
-    if (!book.borrows[0].returned) {
-      acc++;
-    }
-    return acc;
-  }, 0);
+  return books.filter(book => !book.borrows[0].returned).length
 }
 
 //getMostCommonGenres
